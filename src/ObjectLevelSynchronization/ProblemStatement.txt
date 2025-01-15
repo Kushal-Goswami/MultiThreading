@@ -1,0 +1,8 @@
+Suppose you have an account in some of the bank and some common operations are there,
+the common operation could be withdrawal,
+depositing the amount and checking the balance.
+Suppose in your bank account balance having 4000 rupees.
+Now you will go for withdrawal first.
+For everything you have assigning different thread.
+You're going for withdrawal at the same time you're trying to
+deposit the amount at the same time you checking the balance

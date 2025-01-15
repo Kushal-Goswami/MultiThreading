@@ -7,44 +7,48 @@ class Library2 implements Runnable {
     public void run() {
         String tName = Thread.currentThread().getName();
 
-        if (tName.equals("STUDENT1")) {
-            try {
-                Thread.sleep(4000);
-                synchronized (res1) {
-                    System.out.println("Student1 has got the resource " + res1);
+
+
+
+            if (tName.equals("STUDENT1")) {
+                try {
                     Thread.sleep(4000);
-                    synchronized (res2) {
-                        System.out.println("Student1 has got the resource " + res2);
+                    synchronized (res1) {
+                        System.out.println("Student1 has got the resource " + res1);
                         Thread.sleep(4000);
-                        synchronized (res3) {
-                            System.out.println("Student1 has got the resource " + res3);
+                        synchronized (res2) {
+                            System.out.println("Student1 has got the resource " + res2);
                             Thread.sleep(4000);
+                            synchronized (res3) {
+                                System.out.println("Student1 has got the resource " + res3);
+                                Thread.sleep(4000);
+                            }
                         }
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                Thread.sleep(4000);
-                synchronized (res3) {
-                    System.out.println("Student2 has got the resource " + res3);
+            } else {
+                try {
                     Thread.sleep(4000);
-                    synchronized (res2) {
-                        System.out.println("Student2 has got the resource " + res2);
+                    synchronized (res3) {
+                        System.out.println("Student2 has got the resource " + res3);
                         Thread.sleep(4000);
-                        synchronized (res1) {
-                            System.out.println("Student2 has got the resource " + res1);
+                        synchronized (res2) {
+                            System.out.println("Student2 has got the resource " + res2);
                             Thread.sleep(4000);
+                            synchronized (res1) {
+                                System.out.println("Student2 has got the resource " + res1);
+                                Thread.sleep(4000);
+                            }
                         }
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
-    }
+
 }
 
 public class LauchLibraryDeadLock {
